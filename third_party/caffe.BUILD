@@ -9,7 +9,7 @@ cc_library(
         "/usr/include",
     ],
     linkopts = [
-        "-Wl,-rpath,/usr/lib/x86_64-linux-gnu/",
+        "-Wl,-rpath,/usr/lib/aarch64-linux-gnu/",
         "-lboost_system",
         "-lboost_thread",
         "-lboost_filesystem",
