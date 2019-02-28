@@ -30,6 +30,14 @@
 #define AERROR LOG(ERROR)
 #define AFATAL LOG(FATAL)
 
+
+#define MY_TEST_TAG "[DC_TEST]"
+#define ADEBUG_TAGGED ADEBUG <<MY_TEST_TAG <<" "
+#define AINFO_TAGGED AINFO <<MY_TEST_TAG <<" "
+#define AWARN_TAGGED AWARN <<MY_TEST_TAG <<" "
+#define AERROR_TAGGED AERROR <<MY_TEST_TAG <<" "
+#define AFATAL_TAGGED AFATAL <<MY_TEST_TAG <<" "
+
 // LOG_IF
 #define AINFO_IF(cond) LOG_IF(INFO, cond)
 #define AERROR_IF(cond) LOG_IF(ERROR, cond)

@@ -29,15 +29,17 @@ using std::chrono::milliseconds;
 
 void Timer::Start() { start_time_ = Clock::Now(); }
 
-uint64_t Timer::End(const string &msg) {
+uint64_t Timer::End(const string &msg, bool startNewTimer) {
   end_time_ = Clock::Now();
   uint64_t elapsed_time =
       duration_cast<milliseconds>(end_time_ - start_time_).count();
 
-  ADEBUG << "TIMER " << msg << " elapsed_time: " << elapsed_time << " ms";
+  if (elapsed_time > 0)
+    AINFO_TAGGED << "TIMER " << msg << " elapsed_time: " << elapsed_time << " ms";
 
-  // start new timer.
-  start_time_ = end_time_;
+  // start new timer if enabled.
+  if (startNewTimer)
+    start_time_ = end_time_;
   return elapsed_time;
 }
 

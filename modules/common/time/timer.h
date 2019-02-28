@@ -38,9 +38,9 @@ class Timer {
 
   // return the elapsed time,
   // also output msg and time in glog.
-  // automatically start a new timer.
+  // automatically start a new timer if enabled.
   // no-thread safe.
-  uint64_t End(const std::string &msg);
+  uint64_t End(const std::string &msg, bool startNewTimer = true);
 
  private:
   // in ms.
