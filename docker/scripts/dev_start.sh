@@ -290,6 +290,11 @@ function main(){
         -e DOCKER_GRP="$GRP" \
         -e DOCKER_GRP_ID=$GRP_ID \
         -e DOCKER_IMG=$IMG \
+	-e LD_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu:/usr/lib/aarch64-linux-gnu/tegra:/usr/local/cuda/lib64:/usr/local/cuda/stubs:/usr/local/cuda-9.0/targets/aarch64-linux/lib:/usr/local/cuda-9.0/targets/aarch64-linux/lib/stubs \
+	--device=/dev/nvhost-ctrl --device=/dev/nvhost-ctrl-gpu --device=/dev/nvhost-prof-gpu --device=/dev/nvmap --device=/dev/nvhost-gpu --device=/dev/nvhost-as-gpu \
+	-v /usr/src:/usr/src  \
+	-v /lib/modules:/lib/modules \
+	-v /usr/local/cuda-9.0:/usr/local/cuda-9.0 \
 	${EXTRA_VOLUMES} \
         $(local_volumes) \
         --net host \
